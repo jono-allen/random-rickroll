@@ -12,12 +12,13 @@ inputs:
     description: 'Comment message when not Batmaning (Optional : No comment would be made if not provided)'
     required: false
     default: ''
+  actor:
+    description: 'github user to Batmaned'
+    required: true
   GITHUB_TOKEN:
     description: 'Github token of the repository'
     required: true
-  GITHUB_AUTHOR_ID:
-    description: 'github author to Batmaned'
-    required: true
+
 runs:
   using: 'node12'
   main: 'index.js'

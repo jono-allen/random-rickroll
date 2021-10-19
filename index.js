@@ -4,8 +4,12 @@ const github = require("@actions/github");
 async function run() {
   try {
     const percentage = core.getInput("percentage");
+    const actor = core.getInput("actor");
     var message;
-    if (percentage > Math.floor(Math.random() * 100)) {
+    if (
+      percentage > Math.floor(Math.random() * 100) &&
+      (context === github.context.actor) === actor
+    ) {
       message =
         "![batman](https://media.giphy.com/media/jIzXYqaQ0nLkA/giphy.gif)";
       console.log("Gottem!!");
@@ -24,7 +28,7 @@ async function run() {
       core.setFailed("No pull_request found.");
       return;
     }
-    console.log(context.author);
+
     const pull_request_number = context.payload.pull_request.number;
 
     const octokit = new github.getOctokit(github_token);
