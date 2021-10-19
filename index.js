@@ -24,7 +24,7 @@ async function run() {
       core.setFailed("No pull_request found.");
       return;
     }
-    console.log(context);
+    console.log(context.author);
     const pull_request_number = context.payload.pull_request.number;
 
     const octokit = new github.getOctokit(github_token);
