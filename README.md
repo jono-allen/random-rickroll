@@ -1,6 +1,6 @@
-# Random Rick-Roll
+# Batman a team mate
 
-This action comments a gif of Rick Astley when someone opens a new issue.
+This action comments a gif Batman when someone opens a new pr.
 
 ## Inputs
 
@@ -8,9 +8,13 @@ This action comments a gif of Rick Astley when someone opens a new issue.
 
 **Required** Number of people out of hundred should be rickrolled (set this to 100 if you want to rickroll everyone).
 
+### `actor`
+
+**Required** The github user name of when to comment
+
 ### `message`
 
-**Optional** Comment message when not rickrolling (No comment would be made if not provided).
+**Optional** Comment message when not batmaning (No comment would be made if not provided).
 
 ### `GITHUB_TOKEN`
 
@@ -18,7 +22,7 @@ This action comments a gif of Rick Astley when someone opens a new issue.
 
 
 
-Try Opening an issue in this repository : [Demo](https://github.com/TejasvOnly/rickrolldemo)
+Try Opening a pr in this repository : [Demo](https://github.com/jono/batman-demo)
 
 
 ## Example usage
@@ -26,15 +30,15 @@ Try Opening an issue in this repository : [Demo](https://github.com/TejasvOnly/r
 
 ```
 on:
-  issues:
+  pull_request:
     types: [opened]
 
 jobs:
   comment:
     runs-on: ubuntu-latest
     steps:
-      - name: Rick Roll
-        uses: TejasvOnly/random-rickroll@v1.0
+      - name: Batman
+        uses: jonoallen/batman-team-mate@master
         with:
           percentage: 100
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}'
